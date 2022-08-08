@@ -9,18 +9,19 @@ public class UserModel {
     private String firstName;
     private String lastName;
     private String email;
-    private String username;
     private String password;
-    private String role;
 
-    public UserModel(String id, String firstName, String lastName, String email, String username, String password) {
+
+    public  UserModel(){
+
+    }
+
+    public UserModel(String id, String firstName, String lastName, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.username = username;
         this.password = password;
-        this.role = "user";
     }
 
     public String getId() {
@@ -55,14 +56,6 @@ public class UserModel {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -71,24 +64,13 @@ public class UserModel {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     @Override
     public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
+        return "UserModel{" +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
                 '}';
     }
 }

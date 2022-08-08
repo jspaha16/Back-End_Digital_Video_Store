@@ -10,12 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
-
+@CrossOrigin(origins={"http://localhost:3000"})
 @RestController
 public class AuthController {
 
@@ -30,18 +31,14 @@ public class AuthController {
 
 
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
-            var customizedResponse = new CustomizedResponse("You logged in successfully!", null);
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword()));
+            var response = new CustomizedResponse("You Logged In Successfully", null);
+            return  new ResponseEntity(response, HttpStatus.OK);
 
-            return new ResponseEntity(customizedResponse, HttpStatus.OK);
-        }catch (BadCredentialsException ex){
-            var customizedResponse = new CustomizedResponse("Your credentials are incorrect", null);
-
-            return new ResponseEntity(customizedResponse, HttpStatus.UNAUTHORIZED);
+        }catch (BadCredentialsException ex) {
+            var response = new CustomizedResponse("You  username/password were entered incorrectly.", null);
+            return  new ResponseEntity(response, HttpStatus.UNAUTHORIZED);
         }
 
-
-
     }
-
 }
