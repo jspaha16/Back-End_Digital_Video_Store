@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>CJV-Assignment2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>CJV-Assignment2</name>
 	<description>CJV-Assignment2-Movie-BackEnd</description>
 	<properties>
