@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 
-@CrossOrigin(origins={"http://localhost:3000","https://jorid-movies.herokuapp.com"})
+@CrossOrigin(origins={"http://localhost:3000","https://jorid-movies.herokuapp.com/"})
 
 @RestController
 public class UsersController {
